@@ -1,14 +1,29 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar mode="ios" class="home-toolbar">
     <ion-title>
-      Ionic Blank
+      Shh!
     </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button>
+        <ion-icon slot="icon-only" name="settings"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col>
+        <button (click)="startService()"><img class="logo-img" src="assets/imgs/Logo.png" /></button>
+      </ion-col>
+    </ion-row>
+    <ion-row justify-content-center>
+      <ion-col>
+        <button size="large" (click)="getRoute()">
+          <ion-icon name="map"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar mode="ios" class="slides-toolbar">
+    <ion-title>Guia de Uso</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="slides-content">
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide (click)="slideNext()">
+
+      <ion-grid>
+        <ion-row justify-content-center>
+          <ion-col>
+            <h2>Como usar?</h2>
+            <p>Aplicativo de locomoção urbana que empondera pessoas a se locomoverem de uma forma mais segura.</p>
+            <br />
+            <p>Através da vibração do seu aparelho, você pode andar pela cidade com conforto e segurança.</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </ion-slide>
+    <ion-slide (click)="slideNext()">
+      <ion-grid>
+        <ion-row justify-content-center>
+          <ion-col>
+            <ion-icon name="arrow-round-forward"></ion-icon>
+            <p>Dobrar a direita</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+    <ion-slide (click)="slideNext()">
+      <h1>Slide 3</h1>
+    </ion-slide>
+    <ion-slide (click)="slideNext()">
+      <h1>Slide 4</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>Slide 4</h1>
+      <button (click)="goToHomePage()">Go to home</button>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
