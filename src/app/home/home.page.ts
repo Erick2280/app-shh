@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FurtiveService } from '../furtive.service';
-import { ToastController } from '@ionic/angular';
+import { ToastController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +10,7 @@ import { ToastController } from '@ionic/angular';
 export class HomePage {
 
   constructor(private furtiveService: FurtiveService,
-    public toastController: ToastController) {}
+    public toastController: ToastController, private navController: NavController) {}
 
   vibL() {
     this.furtiveService.vibrateLeft();
@@ -72,6 +72,7 @@ export class HomePage {
   }
 
   getRoute(){
-    console.log("teste");
+    let env = this;
+    env.navController.navigateForward('map');
   }
 }

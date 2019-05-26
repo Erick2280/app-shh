@@ -14,20 +14,21 @@
 <ion-content>
   <ion-grid>
     <ion-row justify-content-center>
-      <ion-col>
-        <button (click)="startService()"><img class="logo-img" src="assets/imgs/Logo.png" /></button>
-      </ion-col>
+      <button (click)="startService()"><img class="logo-img" src="assets/imgs/Logo.png" /></button>
+    </ion-row>
+    <div class="distance"></div>
+    <ion-row justify-content-center>
+      <button size="large" (click)="getRoute()">
+        <ion-icon name="map" class="icon-map" color="primary"></ion-icon>
+      </button>
+      
     </ion-row>
     <ion-row justify-content-center>
-      <ion-col>
-        <button size="large" (click)="getRoute()">
-          <ion-icon name="map"></ion-icon>
-        </button>
-      </ion-col>
+        <p>Definir rota</p>
     </ion-row>
   </ion-grid>
 </ion-content>
-  <!-- <div class="ion-padding">
+<!-- <div class="ion-padding">
     <ion-button (click)="vibL()" color="primary">VibL</ion-button>
     <ion-button (click)="vibR()" color="secondary">VibR</ion-button>
     <ion-button (click)="vibS()" color="tertiary">VibS</ion-button>
