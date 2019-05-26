@@ -1,5 +1,7 @@
 {
   "name": "project-alana",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
