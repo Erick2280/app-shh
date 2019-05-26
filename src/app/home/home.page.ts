@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FurtiveService } from '../furtive.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,36 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private furtiveService: FurtiveService) {}
+
+  vibL() {
+    this.furtiveService.vibrateLeft();
+  }
+
+  vibR() {
+    this.furtiveService.vibrateRight();
+  }
+
+  vibS() {
+    this.furtiveService.vibrateStraight();
+  }
+
+  vibARRIVAL() {
+    this.furtiveService.vibrateArrival();
+  }
+
+  vibAR() {
+    this.furtiveService.vibrateActionRequired()
+  }
+
+  furON() {
+    this.furtiveService.turnFurtiveModeOn()
+  }
+
+  furOFF() {
+    this.furtiveService.turnFurtiveModeOff()
+  }
+
+
 
 }
