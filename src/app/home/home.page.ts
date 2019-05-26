@@ -38,6 +38,13 @@ export class HomePage {
     this.furtiveService.turnFurtiveModeOff()
   }
 
+  test() {
+
+    setTimeout(()=> {
+      this.vibR()
+    }, 3000);
+
+  }
 
 
 }

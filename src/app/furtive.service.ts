@@ -4,6 +4,8 @@ import { BackgroundMode } from '@ionic-native/background-mode/ngx';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { AudioManagement } from '@ionic-native/audio-management/ngx';
 import { Storage } from '@ionic/storage';
+import { Backlight } from '@ionic-native/backlight/ngx';
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +16,8 @@ export class FurtiveService {
     private backgroundMode: BackgroundMode,
     private localNotifications: LocalNotifications,
     public audioman: AudioManagement,
-    private storage: Storage) { }
+    private storage: Storage,
+    private backlight: Backlight) { }
 
     
   public turnFurtiveModeOff() {
@@ -26,8 +29,13 @@ export class FurtiveService {
       console.log(reason);
     });
 
-    // restaurar volume de musica
-    // desativar bg
+    this.backlight.on().then(() => console.log('backlight on'));
+
+    this.storage.get('musicVolume').then((volumeLevel) => {
+      this.audioman.setVolume(AudioManagement.VolumeType.MUSIC, volumeLevel);
+    })
+    this.backgroundMode.disable();
+
     // tirar notif
 
   }
@@ -38,18 +46,19 @@ export class FurtiveService {
        }
      )
 
-    this.audioman.setAudioMode(AudioManagement.AudioMode.SILENT)
+    this.audioman.setAudioMode(AudioManagement.AudioMode.VIBRATE)
     .then(() => {
-     console.log('Device audio mode is now SILENT');
+     console.log('Device audio mode is now VIBRATE');
     })
     .catch((reason) => {
       console.log(reason);
     });
 
     this.audioman.setVolume(AudioManagement.VolumeType.MUSIC, 0);
+    this.backgroundMode.enable();
+    this.backlight.off().then(() => console.log('backlight off'));
 
     // lançar notificação
-    // ativar bg
 
   }
 

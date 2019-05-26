@@ -23,6 +23,7 @@
     "@angular/router": "^7.2.2",
     "@ionic-native/audio-management": "^5.6.0",
     "@ionic-native/background-mode": "^5.6.0",
+    "@ionic-native/backlight": "^5.6.0",
     "@ionic-native/core": "^5.0.0",
     "@ionic-native/google-plus": "^5.6.0",
     "@ionic-native/in-app-browser": "^5.6.0",
@@ -35,6 +36,7 @@
     "clovelced-plugin-audiomanagement": "1.0.2",
     "cordova-android": "8.0.0",
     "cordova-plugin-background-mode": "0.7.2",
+    "cordova-plugin-backlight": "0.0.1",
     "cordova-plugin-badge": "^0.8.8",
     "cordova-plugin-googleplus": "7.0.1",
     "cordova-plugin-inappbrowser": "3.0.0",
@@ -98,7 +100,8 @@
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
       "cordova-plugin-ionic-keyboard": {},
-      "clovelced-plugin-audiomanagement": {}
+      "clovelced-plugin-audiomanagement": {},
+      "cordova-plugin-backlight": {}
     },
     "platforms": [
       "android"

@@ -10,6 +10,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
+import { Backlight } from '@ionic-native/backlight/ngx';
 
 import { AudioManagement } from '@ionic-native/audio-management/ngx';
 import { AppComponent } from './app.component';
@@ -45,6 +46,7 @@ const firebaseConfig = {
     BackgroundMode,
     AudioManagement,
     LocalNotifications,
+    Backlight,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
