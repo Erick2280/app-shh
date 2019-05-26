@@ -19,6 +19,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { Vibration } from '@ionic-native/vibration/ngx';
 import { BackgroundMode } from '@ionic-native/background-mode/ngx';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+import { Brightness } from '@ionic-native/brightness/ngx';
+
 
 
 const firebaseConfig = {
@@ -47,6 +49,7 @@ const firebaseConfig = {
     AudioManagement,
     LocalNotifications,
     Backlight,
+    Brightness,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

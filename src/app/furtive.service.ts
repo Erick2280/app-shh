@@ -5,6 +5,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { AudioManagement } from '@ionic-native/audio-management/ngx';
 import { Storage } from '@ionic/storage';
 import { Backlight } from '@ionic-native/backlight/ngx';
+import { Brightness } from '@ionic-native/brightness/ngx';
 
 
 @Injectable({
@@ -17,7 +18,8 @@ export class FurtiveService {
     private localNotifications: LocalNotifications,
     public audioman: AudioManagement,
     private storage: Storage,
-    private backlight: Backlight) { }
+    private backlight: Backlight,
+    private brightness: Brightness) { }
 
     
   public turnFurtiveModeOff() {
@@ -34,6 +36,10 @@ export class FurtiveService {
     this.storage.get('musicVolume').then((volumeLevel) => {
       this.audioman.setVolume(AudioManagement.VolumeType.MUSIC, volumeLevel);
     })
+    this.storage.get('brightnessLevel').then((brightnessLevel) => {
+      this.brightness.setBrightness(brightnessLevel);
+    })
+
     this.backgroundMode.disable();
 
     // tirar notif
@@ -56,9 +62,14 @@ export class FurtiveService {
 
     this.audioman.setVolume(AudioManagement.VolumeType.MUSIC, 0);
     this.backgroundMode.enable();
+    this.brightness.getBrightness().then((brightnessLevel) => {
+      this.storage.set('brightnessLevel', brightnessLevel)
+      this.brightness.setBrightness(0);
+    })
     this.backlight.off().then(() => console.log('backlight off'));
 
     // lançar notificação
+    // luz
 
   }
 
