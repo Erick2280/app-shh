@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FurtiveService } from '../furtive.service';
 import { ToastController } from '@ionic/angular';
 
 @Component({
@@ -8,7 +9,54 @@ import { ToastController } from '@ionic/angular';
 })
 export class HomePage {
 
-  constructor(public toastController: ToastController) {}
+  constructor(private furtiveService: FurtiveService,
+    public toastController: ToastController) {}
+
+  vibL() {
+    this.furtiveService.vibrateLeft();
+  }
+
+  vibR() {
+    this.furtiveService.vibrateRight();
+  }
+
+  vibS() {
+    this.furtiveService.vibrateStraight();
+  }
+
+  vibARRIVAL() {
+    this.furtiveService.vibrateArrival();
+  }
+
+  vibAR() {
+    this.furtiveService.vibrateActionRequired()
+  }
+
+  furON() {
+    this.furtiveService.turnFurtiveModeOn();
+  }
+
+  async enteredFurtiveMode() {
+    const toast = await this.toastController.create({
+      message: 'Modo Shh! ativado. Você pode desligar a tela do celular com segurança.',
+      duration: 4000
+    });
+
+    toast.present();
+  }
+
+  furOFF() {
+    this.furtiveService.turnFurtiveModeOff()
+  }
+
+  test() {
+
+    setTimeout(()=> {
+      this.vibR()
+    }, 3000);
+
+  }
+
 
   async presentToast() {
     const toast = await this.toastController.create({
