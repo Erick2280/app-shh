@@ -1,0 +1,28 @@
+.home-toolbar {
+  --background: rgba(68, 32, 93,1);
+  --color:#23c687;
+}
+
+.logo-img {
+  width: 150px;
+  border-radius: 50%;
+}
+
+.icon-map {
+  font-size: 150px;
+  --background: #fff;
+  --color:rgba(68, 32, 93,1);
+}
+
+.distance {
+  height: 100px;
+}
+
+.big-button {
+  background: transparent;
+  padding-top: 40px;
+}
+
+.distance-button {
+  background: transparent;
+}

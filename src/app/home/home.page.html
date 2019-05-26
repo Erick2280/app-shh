@@ -4,7 +4,7 @@
       Shh!
     </ion-title>
     <ion-buttons slot="primary">
-      <ion-button>
+      <ion-button (click)="notify()">
         <ion-icon slot="icon-only" name="settings"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -14,11 +14,11 @@
 <ion-content>
   <ion-grid>
     <ion-row justify-content-center>
-      <button (click)="startService()"><img class="logo-img" src="assets/imgs/Logo.png" /></button>
+      <button class="big-button" (click)="toggleService()"><img class="logo-img" src="assets/imgs/Logo.png" /></button>
     </ion-row>
     <div class="distance"></div>
     <ion-row justify-content-center>
-      <button size="large" (click)="getRoute()">
+      <button class="distance-button" size="large" (click)="getRoute()">
         <ion-icon name="map" class="icon-map" color="primary"></ion-icon>
       </button>
       

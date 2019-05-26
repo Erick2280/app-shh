@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FurtiveService } from '../furtive.service';
 import { ToastController, NavController } from '@ionic/angular';
-
+import { NotificationService } from '../notification.service';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -10,30 +10,14 @@ import { ToastController, NavController } from '@ionic/angular';
 export class HomePage {
 
   constructor(private furtiveService: FurtiveService,
-    public toastController: ToastController, private navController: NavController) {}
+    public toastController: ToastController, private navController: NavController,
+    private notificationService: NotificationService) {}
 
-  vibL() {
-    this.furtiveService.vibrateLeft();
-  }
 
-  vibR() {
-    this.furtiveService.vibrateRight();
-  }
+  furtiveStatus:boolean = false;
 
-  vibS() {
-    this.furtiveService.vibrateStraight();
-  }
-
-  vibARRIVAL() {
-    this.furtiveService.vibrateArrival();
-  }
-
-  vibAR() {
-    this.furtiveService.vibrateActionRequired()
-  }
-
-  furON() {
-    this.furtiveService.turnFurtiveModeOn();
+  notify() {
+    this.notificationService.sendNotification();
   }
 
   async enteredFurtiveMode() {
@@ -45,31 +29,43 @@ export class HomePage {
     toast.present();
   }
 
-  furOFF() {
-    this.furtiveService.turnFurtiveModeOff()
-  }
-
   test() {
 
     setTimeout(()=> {
-      this.vibR()
+      this.furtiveService.vibrateLeft()
     }, 3000);
+
+    setTimeout(()=> {
+      this.furtiveService.vibrateRight()
+    }, 8000);
+
+    setTimeout(()=> {
+      this.furtiveService.vibrateArrival()
+    }, 14000);
 
   }
 
-
-  async presentToast() {
-    const toast = await this.toastController.create({
-      message: 'Shh! Você pode andar em segurança agora!',
-      duration: 2000
-    });
-    toast.present();
+  toggleService() {
+    if (!this.furtiveStatus) {
+      this.startService();
+    } else {
+      this.stopService();
+    }
   }
 
   startService() {
-    console.log("teste");
-    this.presentToast()
+    this.furtiveStatus = true;
+    this.furtiveService.turnFurtiveModeOn();
+    this.enteredFurtiveMode();
+    this.test();
   }
+
+  stopService() {
+    this.furtiveStatus = false;
+    this.furtiveService.turnFurtiveModeOff();
+  }
+
+
 
   getRoute(){
     let env = this;
