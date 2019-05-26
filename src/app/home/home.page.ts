@@ -16,6 +16,12 @@ export class HomePage {
 
   furtiveStatus:boolean = false;
 
+  ionViewDidEnter() {
+    setTimeout(()=> {
+      this.notify();
+    }, 5000);
+  }
+
   notify() {
     this.notificationService.sendNotification();
   }
@@ -33,15 +39,15 @@ export class HomePage {
 
     setTimeout(()=> {
       this.furtiveService.vibrateLeft()
-    }, 3000);
+    }, 4000);
 
     setTimeout(()=> {
       this.furtiveService.vibrateRight()
-    }, 8000);
+    }, 9000);
 
     setTimeout(()=> {
       this.furtiveService.vibrateArrival()
-    }, 14000);
+    }, 15000);
 
   }
 
@@ -64,8 +70,6 @@ export class HomePage {
     this.furtiveStatus = false;
     this.furtiveService.turnFurtiveModeOff();
   }
-
-
 
   getRoute(){
     let env = this;
