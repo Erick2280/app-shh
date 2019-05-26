@@ -11,6 +11,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 
+import { AudioManagement } from '@ionic-native/audio-management/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
@@ -42,6 +43,7 @@ const firebaseConfig = {
     InAppBrowser,
     Vibration,
     BackgroundMode,
+    AudioManagement,
     LocalNotifications,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
